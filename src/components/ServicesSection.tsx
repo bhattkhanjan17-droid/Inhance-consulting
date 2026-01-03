@@ -255,12 +255,31 @@ const ServicesSection = () => {
       >
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
           {selectedService && (
-            <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            >
               <DialogHeader>
-                <div className="flex items-center gap-4 mb-2">
-                  <div className="w-14 h-14 bg-gradient-gold rounded-xl flex items-center justify-center">
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  className="flex items-center gap-4 mb-2"
+                >
+                  <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 15,
+                      delay: 0.2,
+                    }}
+                    className="w-14 h-14 bg-gradient-gold rounded-xl flex items-center justify-center"
+                  >
                     <selectedService.icon className="w-7 h-7 text-foreground" />
-                  </div>
+                  </motion.div>
                   <div>
                     <DialogTitle className="text-2xl font-display">
                       {selectedService.title}
@@ -269,80 +288,144 @@ const ServicesSection = () => {
                       {selectedService.description}
                     </DialogDescription>
                   </div>
-                </div>
+                </motion.div>
               </DialogHeader>
 
               <div className="space-y-6 mt-4">
                 {/* Detailed Description */}
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                >
                   <p className="text-foreground leading-relaxed">
                     {selectedService.detailedDescription}
                   </p>
-                </div>
+                </motion.div>
 
                 {/* Process */}
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                >
                   <h4 className="font-semibold text-lg mb-4">Our Process</h4>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     {selectedService.process.map((step, index) => (
-                      <div
+                      <motion.div
                         key={step}
+                        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{
+                          duration: 0.4,
+                          delay: 0.4 + index * 0.1,
+                          type: "spring",
+                          stiffness: 150,
+                        }}
                         className="relative bg-secondary rounded-xl p-4 text-center"
                       >
-                        <div className="w-8 h-8 bg-accent text-accent-foreground rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 15,
+                            delay: 0.5 + index * 0.1,
+                          }}
+                          className="w-8 h-8 bg-accent text-accent-foreground rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold"
+                        >
                           {index + 1}
-                        </div>
+                        </motion.div>
                         <span className="text-sm font-medium">{step}</span>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Benefits */}
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                >
                   <h4 className="font-semibold text-lg mb-4">Key Benefits</h4>
                   <div className="grid gap-3">
-                    {selectedService.benefits.map((benefit) => (
-                      <div
+                    {selectedService.benefits.map((benefit, index) => (
+                      <motion.div
                         key={benefit}
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          duration: 0.4,
+                          delay: 0.6 + index * 0.08,
+                          ease: "easeOut",
+                        }}
                         className="flex items-start gap-3 p-3 bg-secondary/50 rounded-lg"
                       >
-                        <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 15,
+                            delay: 0.7 + index * 0.08,
+                          }}
+                        >
+                          <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                        </motion.div>
                         <span className="text-sm text-foreground">
                           {benefit}
                         </span>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
 
                 {/* CTA */}
-                <div className="flex gap-4 pt-4 border-t border-border">
-                  <Button
-                    variant="gold"
-                    size="lg"
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 1 }}
+                  className="flex gap-4 pt-4 border-t border-border"
+                >
+                  <motion.div
                     className="flex-1"
-                    onClick={() => {
-                      setSelectedService(null);
-                      const element = document.querySelector("#contact");
-                      if (element) {
-                        element.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    Get Started
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    onClick={() => setSelectedService(null)}
+                    <Button
+                      variant="gold"
+                      size="lg"
+                      className="w-full"
+                      onClick={() => {
+                        setSelectedService(null);
+                        const element = document.querySelector("#contact");
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }}
+                    >
+                      Get Started
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    Close
-                  </Button>
-                </div>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      onClick={() => setSelectedService(null)}
+                    >
+                      Close
+                    </Button>
+                  </motion.div>
+                </motion.div>
               </div>
-            </>
+            </motion.div>
           )}
         </DialogContent>
       </Dialog>
