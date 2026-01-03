@@ -1,35 +1,10 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { MapPin, Clock, ArrowRight, Sparkles, Coffee, Heart, Rocket } from "lucide-react";
+import { useRef, useState } from "react";
+import { ArrowRight, Sparkles, Coffee, Heart, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const positions = [
-  {
-    title: "Senior Strategy Consultant",
-    department: "Strategy",
-    location: "New York",
-    type: "Full-time",
-  },
-  {
-    title: "Digital Transformation Lead",
-    department: "Technology",
-    location: "San Francisco",
-    type: "Full-time",
-  },
-  {
-    title: "Business Analyst",
-    department: "Operations",
-    location: "London",
-    type: "Full-time",
-  },
-  {
-    title: "Change Management Specialist",
-    department: "People & Culture",
-    location: "Singapore",
-    type: "Full-time",
-  },
-];
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const perks = [
   { icon: Sparkles, label: "Competitive Compensation" },
@@ -41,6 +16,13 @@ const perks = [
 const CareersSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+    setTimeout(() => setIsSubmitted(false), 3000);
+  };
 
   return (
     <section id="careers" className="py-24">
@@ -62,8 +44,7 @@ const CareersSection = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mt-3 text-3xl md:text-4xl lg:text-5xl font-display font-bold"
             >
-              Join Our Team of{" "}
-              <span className="text-gradient-gold">Visionaries</span>
+              Join Our Team {" "}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -71,9 +52,7 @@ const CareersSection = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mt-4 text-lg text-muted-foreground"
             >
-              We're always looking for talented individuals who are passionate
-              about making a difference. Join us in shaping the future of
-              business consulting.
+              We’re always looking for talented individuals who are passionate about data, technology, and delivery excellence.
             </motion.p>
 
             {/* Perks */}
@@ -97,52 +76,97 @@ const CareersSection = () => {
             </motion.div>
           </div>
 
-          {/* Job Listings */}
-          <div className="space-y-4">
-            {positions.map((position, index) => (
-              <motion.div
-                key={position.title}
-                initial={{ opacity: 0, x: 30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="group bg-card p-6 rounded-2xl shadow-card hover:shadow-elevated transition-all duration-300 cursor-pointer"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                  <div>
-                    <span className="text-xs font-medium text-accent uppercase tracking-wider">
-                      {position.department}
-                    </span>
-                    <h3 className="text-lg font-semibold mt-1 group-hover:text-accent transition-colors">
-                      {position.title}
-                    </h3>
-                    <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        {position.location}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        {position.type}
-                      </span>
-                    </div>
-                  </div>
-                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all" />
+          {/* Application Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-card p-8 rounded-3xl shadow-card border border-border"
+          >
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">Full Name</label>
+                  <Input
+                    placeholder="Jane Doe"
+                    className="bg-background border-border focus:border-accent focus:ring-accent"
+                    required
+                  />
                 </div>
-              </motion.div>
-            ))}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">Email Address</label>
+                  <Input
+                    type="email"
+                    placeholder="jane@company.com"
+                    className="bg-background border-border focus:border-accent focus:ring-accent"
+                    required
+                  />
+                </div>
+              </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="pt-4"
-            >
-              <Button variant="hero-outline" size="lg" className="w-full sm:w-auto">
-                View All Openings
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">Phone Number</label>
+                  <Input
+                    type="tel"
+                    placeholder="+1 (555) 123-4567"
+                    className="bg-background border-border focus:border-accent focus:ring-accent"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">Position Applying For</label>
+                  <Input
+                    placeholder="e.g. Digital PMO Lead"
+                    className="bg-background border-border focus:border-accent focus:ring-accent"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">Years of Experience</label>
+                  <Input
+                    type="number"
+                    min={0}
+                    placeholder="8"
+                    className="bg-background border-border focus:border-accent focus:ring-accent"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">Upload CV (PDF/Word)</label>
+                  <Input
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    className="bg-background border-border focus:border-accent focus:ring-accent file:bg-secondary file:border-0 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-foreground"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground">Additional Comments (optional)</label>
+                <Textarea
+                  placeholder="Tell us what excites you about joining Inhance..."
+                  rows={4}
+                  className="bg-background border-border focus:border-accent focus:ring-accent resize-none"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                variant="gold"
+                size="lg"
+                className="w-full"
+                disabled={isSubmitted}
+              >
+                {isSubmitted ? "Application Sent" : "Submit Application"}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            </motion.div>
-          </div>
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>

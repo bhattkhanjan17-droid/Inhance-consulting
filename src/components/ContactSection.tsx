@@ -14,8 +14,8 @@ const contactInfo = [
   },
   {
     icon: Mail,
-    label: "Email Us",
-    value: "hello@ascendconsulting.com",
+    label: "For sales or service enquiries",
+    value: "Sales@inhanceconsulting.com",
   },
   {
     icon: Phone,
@@ -105,7 +105,7 @@ const ContactSection = () => {
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-foreground">
-                    First Name
+                    Full Name
                   </label>
                   <Input
                     placeholder="John"
@@ -114,7 +114,7 @@ const ContactSection = () => {
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-foreground">
-                    Last Name
+                    Phone Number
                   </label>
                   <Input
                     placeholder="Doe"
@@ -140,6 +140,16 @@ const ContactSection = () => {
                 </label>
                 <Input
                   placeholder="Your Company"
+                  className="bg-background border-border focus:border-accent focus:ring-accent"
+                />
+              </div>
+
+               <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground">
+                  Service of Interest
+                </label>
+                <Input
+                  placeholder="Service of Interest"
                   className="bg-background border-border focus:border-accent focus:ring-accent"
                 />
               </div>

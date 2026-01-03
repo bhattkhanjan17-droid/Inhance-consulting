@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
 import { Linkedin, Twitter, Instagram, ArrowUp } from "lucide-react";
+import InhanceLogo from "@/images/Inhance.png";
 
 const footerLinks = {
   company: [
     { label: "About Us", href: "#about" },
     { label: "Careers", href: "#careers" },
-    { label: "Press", href: "#" },
-    { label: "News", href: "#" },
   ],
   services: [
     { label: "Strategy", href: "#services" },
@@ -16,8 +15,8 @@ const footerLinks = {
   ],
   resources: [
     { label: "Case Studies", href: "#case-studies" },
-    { label: "Insights", href: "#" },
-    { label: "Events", href: "#" },
+    // { label: "Insights", href: "#" },
+    // { label: "Events", href: "#" },
     { label: "Contact", href: "#contact" },
   ],
 };
@@ -48,10 +47,13 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-gold rounded-lg flex items-center justify-center">
-                <span className="text-primary font-display font-bold text-xl">A</span>
-              </div>
-              <span className="font-display text-xl font-semibold">Ascend</span>
+              <img
+                src={InhanceLogo}
+                alt="Inhance Consulting logo"
+                className="h-10 w-auto drop-shadow-sm"
+                loading="lazy"
+                style={{ height: "65px" }}
+              />
             </div>
             <p className="text-primary-foreground/70 max-w-sm mb-6">
               Empowering organizations to reach their full potential through
@@ -124,7 +126,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-primary-foreground/60">
-            © {new Date().getFullYear()} Ascend Consulting. All rights reserved.
+            © {new Date().getFullYear()} Inhance Consulting. All rights reserved.
           </p>
           <motion.button
             onClick={scrollToTop}

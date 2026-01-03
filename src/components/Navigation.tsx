@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import InhanceLogo from "@/images/Inhance.png";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -53,15 +54,16 @@ const Navigation = () => {
                 e.preventDefault();
                 scrollToSection("#home");
               }}
-              className="flex items-center gap-2"
+              className="flex items-center gap-3"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="w-10 h-10 bg-gradient-gold rounded-lg flex items-center justify-center">
-                <span className="text-primary font-display font-bold text-xl">A</span>
-              </div>
-              <span className="font-display text-xl font-semibold text-foreground">
-                Ascend
-              </span>
+              <img
+                src={InhanceLogo}
+                alt="Inhance Consulting logo"
+                className="h-10 w-auto drop-shadow-sm"
+                loading="lazy"
+                style={{ height: "65px" }}
+              />
             </motion.a>
 
             {/* Desktop Navigation */}
@@ -70,7 +72,7 @@ const Navigation = () => {
                 <motion.button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                  className="px-4 py-2 text-base font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -125,7 +127,7 @@ const Navigation = () => {
                   <motion.button
                     key={item.href}
                     onClick={() => scrollToSection(item.href)}
-                    className="py-3 px-4 text-left text-lg font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
+                    className="py-3 px-4 text-left text-xl font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}

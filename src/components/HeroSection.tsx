@@ -30,7 +30,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div className="space-y-8">
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -40,7 +40,7 @@ const HeroSection = () => {
               <span className="text-sm font-medium text-foreground/80">
                 Trusted by Fortune 500 Companies
               </span>
-            </motion.div>
+            </motion.div> */}
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -58,9 +58,10 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg text-muted-foreground max-w-xl"
             >
-              We partner with ambitious organizations to drive growth, optimize
-              operations, and unlock new opportunities through data-driven
-              strategies and innovative solutions.
+              We are a specialist consultancy focused on transforming how organisations use data, 
+              deliver projects, and adopt digital and AI driven solutions. 
+              We partner with clients to simplify complexity, unlock insights, 
+              and deliver measurable business outcomes.
             </motion.p>
 
             <motion.div
@@ -131,7 +132,7 @@ const HeroSection = () => {
               <div className="absolute inset-8 border-2 border-primary/20 rounded-full" />
               <div className="absolute inset-16 bg-gradient-to-br from-primary to-navy-light rounded-full flex items-center justify-center">
                 <div className="text-center text-primary-foreground p-8">
-                  <div className="font-display text-5xl font-bold mb-2">15+</div>
+                  <div className="font-display text-5xl font-bold mb-2">10+</div>
                   <div className="text-sm opacity-80">Years of Excellence</div>
                 </div>
               </div>

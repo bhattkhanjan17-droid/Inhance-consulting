@@ -24,140 +24,95 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: LineChart,
-    title: "Strategic Planning",
+    title: "Data Analytics & Visualisation",
     description:
-      "Develop comprehensive strategies aligned with your vision and market opportunities.",
-    features: ["Market Analysis", "Growth Roadmaps", "Competitive Positioning"],
+      "We help organisations turn data into meaningful insights through advanced analytics, automation, and intuitive visualisation.",
+    features: [],
     detailedDescription:
-      "Our strategic planning services help organizations define their long-term vision and create actionable roadmaps to achieve sustainable growth. We combine rigorous market analysis with deep industry expertise to identify opportunities and build competitive advantages.",
+      "",
     benefits: [
-      "Clear vision and mission alignment across the organization",
-      "Data-driven market opportunity identification",
-      "Actionable 3-5 year strategic roadmaps",
-      "Competitive landscape analysis and positioning",
-      "Risk assessment and mitigation strategies",
-      "KPI frameworks for tracking progress",
+      "Collaborative workshops to understand business needs",
+      "Rapid prototyping for early visibility",
+      "Scalable data models and governance frameworks",
+      "User friendly dashboards designed for decision makers",
+      "Wide Range of Standard (Power Bi, Tableau etc.), and Customized tools/reports",
     ],
     process: [
-      "Discovery & Assessment",
-      "Market Research",
-      "Strategy Development",
-      "Implementation Planning",
+      "Dashboard design & development",
+      "Data modelling & data quality improvement",
+      "KPI frameworks & performance reporting",
+      "Automated reporting solutions",
+      "Insight generation & storytelling with data",
     ],
   },
   {
     icon: Settings,
-    title: "Operational Excellence",
+    title: "Product/Project Delivery & Management",
     description:
-      "Optimize processes and systems to enhance efficiency and reduce costs.",
-    features: ["Process Optimization", "Cost Reduction", "Quality Management"],
+      "We help organisations deliver Product/Projects with confidence, clarity, and control. Our team brings structured delivery expertise, proven methodologies, and hands‑on experience to ensure projects are executed on time, within budget, and to the highest standard.",
+    features: [],
     detailedDescription:
-      "We help organizations streamline operations, eliminate waste, and build systems that scale. Our operational excellence methodology combines lean principles with modern technology to drive efficiency improvements across your entire value chain.",
+      "",
     benefits: [
-      "20-40% reduction in operational costs",
-      "Improved process cycle times and throughput",
-      "Enhanced quality and reduced defect rates",
-      "Standardized processes and best practices",
-      "Scalable operational frameworks",
-      "Real-time performance monitoring dashboards",
+      "Certified project managers with multi industry experience",
+      "Transparent reporting and Structured governance",
+      "Structured delivery frameworks tailored to your organisation",
+      "Prioritising value, quality, and measurable results at every stage",
+      "Consistent communication and alignment across teams",
     ],
     process: [
-      "Process Mapping",
-      "Bottleneck Analysis",
-      "Solution Design",
-      "Implementation & Training",
+      "End to end Product/Project management",
+      "Project setup & governance",
+      "Risk, issue, and dependency management",
+      "Stakeholder engagement & communication planning",
+      "Agile, Waterfall, and hybrid delivery models",
     ],
   },
   {
     icon: Cpu,
-    title: "Digital Transformation",
+    title: "Digital Product/Project Management Office (Digital PMO)",
     description:
-      "Navigate the digital landscape with innovative technology solutions.",
-    features: ["Tech Strategy", "Cloud Migration", "Data Analytics"],
+      "We modernise traditional PMOs by integrating digital tools, automation, and real‑time reporting to create a more efficient, transparent, and insight‑driven project environment. Our Digital PMO approach enhances governance, streamlines workflows, and provides leaders with the visibility they need to make faster, smarter decisions.",
+    features: [],
     detailedDescription:
-      "Transform your business with cutting-edge digital solutions. We guide organizations through their digital journey, from strategy development to implementation, ensuring technology investments deliver measurable business value.",
+      "",
     benefits: [
-      "Comprehensive digital maturity assessment",
-      "Cloud-first architecture and migration",
-      "Advanced analytics and AI capabilities",
-      "Enhanced customer experience platforms",
-      "Cybersecurity and data governance",
-      "Agile delivery methodologies",
+      "Assessment of current PMO maturity",
+      "Implementation of digital tools (Power Platform, Jira, Smartsheet, etc.)",
+      "Training and change management",
+      "Proven Delivery and Operating Model",
+      "Centre of Excellence- Continuous Improvement",
     ],
     process: [
-      "Digital Assessment",
-      "Technology Roadmap",
-      "Pilot Programs",
-      "Enterprise Rollout",
+      "Digital PMO setup & transformation",
+      "Performance Management",
+      "Finance, Resource & capacity planning",
+      "Governance frameworks",
+      "Planning & Scheduling Management",
+      "Risk & Issues Management",
     ],
   },
   {
     icon: Users2,
-    title: "Organizational Change",
+    title: "AI Consultancy",
     description:
-      "Transform culture and capabilities to drive sustainable performance.",
-    features: ["Change Management", "Leadership Development", "Team Building"],
+      "We help organisations adopt AI responsibly, effectively, and in ways that create real business value. Our approach focuses on identifying practical use cases, improving operational efficiency, and ensuring AI is implemented with the right governance, controls, and ethical considerations. Whether you’re exploring AI for the first time or scaling existing capabilities, we guide you through every step of the journey.",
+    features: [],
     detailedDescription:
-      "Successful transformation requires more than new processes—it requires people to embrace change. Our organizational change practice helps leaders build cultures of innovation, develop talent, and drive adoption of new ways of working.",
+      "",
     benefits: [
-      "Change readiness assessment and planning",
-      "Leadership alignment and coaching",
-      "Communication strategy and execution",
-      "Training program development",
-      "Culture transformation initiatives",
-      "Sustainable change adoption metrics",
+      "AI readiness assessments to evaluate current capabilities, risks, and opportunities",
+      "Use case identification & prioritisation aligned to business goals",
+      "AI powered automation solutions to streamline processes and reduce manual effort",
+      "Proof of concept development to validate ideas quickly and cost effectively",
+      "Training & adoption support to help teams understand and use AI confidently.",
     ],
     process: [
-      "Stakeholder Analysis",
-      "Change Strategy",
-      "Enablement Programs",
-      "Adoption & Reinforcement",
-    ],
-  },
-  {
-    icon: BarChart3,
-    title: "Financial Advisory",
-    description:
-      "Expert guidance on financial strategy, M&A, and value creation.",
-    features: ["M&A Advisory", "Valuation", "Due Diligence"],
-    detailedDescription:
-      "Our financial advisory team provides strategic guidance on transactions, valuations, and financial optimization. We help clients maximize value through mergers, acquisitions, divestitures, and capital structure optimization.",
-    benefits: [
-      "Independent and objective valuation analysis",
-      "Comprehensive due diligence support",
-      "Deal structuring and negotiation support",
-      "Post-merger integration planning",
-      "Working capital optimization",
-      "Financial performance improvement",
-    ],
-    process: [
-      "Opportunity Assessment",
-      "Valuation & Analysis",
-      "Transaction Support",
-      "Integration Planning",
-    ],
-  },
-  {
-    icon: Briefcase,
-    title: "Risk Management",
-    description:
-      "Identify, assess, and mitigate risks to protect your business.",
-    features: ["Risk Assessment", "Compliance", "Business Continuity"],
-    detailedDescription:
-      "In an increasingly complex business environment, effective risk management is essential. We help organizations identify, assess, and mitigate risks while building resilience and ensuring regulatory compliance.",
-    benefits: [
-      "Enterprise risk assessment frameworks",
-      "Regulatory compliance programs",
-      "Business continuity and disaster recovery",
-      "Cybersecurity risk management",
-      "Third-party risk management",
-      "Risk culture and governance",
-    ],
-    process: [
-      "Risk Identification",
-      "Impact Assessment",
-      "Mitigation Planning",
-      "Monitoring & Reporting",
+      "We focus on Business first approach solving real problems",
+      "Rapid prototyping, Early visibility and quick wins to demonstrate value",
+      "Clear governance, Safe and Ethical AI Framework",
+      "Collaborative delivery to co create solutions",
+      "Designing solutions that grow with your organisation",
     ],
   },
 ];
@@ -284,9 +239,9 @@ const ServicesSection = () => {
                     <DialogTitle className="text-2xl font-display">
                       {selectedService.title}
                     </DialogTitle>
-                    <DialogDescription className="text-muted-foreground">
+                    {/* <DialogDescription className="text-muted-foreground">
                       {selectedService.description}
-                    </DialogDescription>
+                    </DialogDescription> */}
                   </div>
                 </motion.div>
               </DialogHeader>
@@ -309,7 +264,7 @@ const ServicesSection = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.3 }}
                 >
-                  <h4 className="font-semibold text-lg mb-4">Our Process</h4>
+                  <h4 className="font-semibold text-lg mb-4">What we offer</h4>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     {selectedService.process.map((step, index) => (
                       <motion.div
@@ -349,7 +304,7 @@ const ServicesSection = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.5 }}
                 >
-                  <h4 className="font-semibold text-lg mb-4">Key Benefits</h4>
+                  <h4 className="font-semibold text-lg mb-4">How we do it</h4>
                   <div className="grid gap-3">
                     {selectedService.benefits.map((benefit, index) => (
                       <motion.div

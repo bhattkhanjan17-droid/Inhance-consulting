@@ -8,25 +8,19 @@ const values = [
     icon: Lightbulb,
     title: "Innovation First",
     description:
-      "We embrace cutting-edge methodologies to solve complex business challenges.",
+      "Applying modern, forward thinking tools to drive digital transformation.",
   },
   {
     icon: Shield,
-    title: "Trusted Partnership",
+    title: "Collaboration",
     description:
-      "Building long-term relationships based on transparency and mutual success.",
+      "Working closely with clients to co create practical, scalable solutions.",
   },
   {
     icon: Globe,
-    title: "Global Perspective",
+    title: "Impact",
     description:
-      "Leveraging worldwide insights while understanding local market dynamics.",
-  },
-  {
-    icon: Award,
-    title: "Excellence Driven",
-    description:
-      "Committed to delivering exceptional results that exceed expectations.",
+      "Focusing on outcomes that create real, lasting value.",
   },
 ];
 
@@ -45,7 +39,7 @@ const AboutSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-accent font-semibold uppercase tracking-wider text-sm">
+              <span className="text-accent font-semibold uppercase tracking-wider">
                 About Us
               </span>
               <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-display font-bold">
@@ -58,12 +52,14 @@ const AboutSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg text-muted-foreground"
+              className="text-muted-foreground"
             >
-              Founded in 2008, Ascend Consulting has grown from a boutique
-              advisory firm to a leading global consultancy. We've helped
-              hundreds of organizations navigate complex transformations and
-              achieve sustainable growth.
+              <span className="font-semibold uppercase tracking-wider">
+                Our Philosophy
+              </span>
+              <p>We believe that technology should enhance human capability — not replace it. 
+              Our approach blends deep technical expertise with practical delivery experience, 
+              ensuring solutions that are scalable, sustainable, and aligned with real business needs.</p>
             </motion.p>
 
             <motion.p
@@ -72,34 +68,26 @@ const AboutSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-muted-foreground"
             >
-              Our team of seasoned professionals brings diverse expertise across
-              industries, combining strategic vision with practical execution to
-              deliver measurable results for our clients.
+              <span className="font-semibold uppercase tracking-wider">
+                Our Vision
+              </span>
+              <p>To empower organisations worldwide to make smarter decisions, deliver projects with confidence, 
+                and embrace digital transformation through data, technology, and innovation.</p>
             </motion.p>
 
-            <motion.div
+            <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="grid grid-cols-2 gap-6 pt-4"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-muted-foreground"
             >
-              <div className="space-y-1">
-                <div className="text-3xl font-display font-bold text-foreground">
-                  500+
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  Clients Worldwide
-                </div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-3xl font-display font-bold text-foreground">
-                  35+
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  Countries Served
-                </div>
-              </div>
-            </motion.div>
+              <span className="font-semibold uppercase tracking-wider">
+                Our Misson
+              </span>
+              <p>Our mission is to deliver insight‑driven solutions, simplify complex challenges 
+                through structured project delivery, enable responsible AI adoption, 
+                and build trusted partnerships that create measurable, lasting value.</p>
+            </motion.p>
           </div>
 
           {/* Values Grid */}
