@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const contactInfo = [
- 
   {
     icon: Mail,
     label: "For sales or service enquiries",
