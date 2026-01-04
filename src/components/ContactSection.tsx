@@ -10,17 +10,17 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Visit Us",
-    value: "123 Business Avenue, New York, NY 10001",
+    value: "",
   },
   {
     icon: Mail,
     label: "For sales or service enquiries",
-    value: "Sales@inhanceconsulting.com",
+    value: "Info@inhanceconsulting.com",
   },
   {
     icon: Phone,
     label: "Call Us",
-    value: "+1 (555) 123-4567",
+    value: "+91 9429002080",
   },
 ];
 

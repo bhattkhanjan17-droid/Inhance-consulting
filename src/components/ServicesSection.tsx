@@ -23,6 +23,29 @@ import { Button } from "@/components/ui/button";
 
 const services = [
   {
+    icon: Users2,
+    title: "AI Consultancy",
+    description:
+      "We help organisations adopt AI responsibly, effectively, and in ways that create real business value. Our approach focuses on identifying practical use cases, improving operational efficiency, and ensuring AI is implemented with the right governance, controls, and ethical considerations. Whether you’re exploring AI for the first time or scaling existing capabilities, we guide you through every step of the journey.",
+    features: [],
+    detailedDescription:
+      "",
+    benefits: [
+      "AI readiness assessments to evaluate current capabilities, risks, and opportunities",
+      "Use case identification & prioritisation aligned to business goals",
+      "AI powered automation solutions to streamline processes and reduce manual effort",
+      "Proof of concept development to validate ideas quickly and cost effectively",
+      "Training & adoption support to help teams understand and use AI confidently.",
+    ],
+    process: [
+      "We focus on Business first approach solving real problems",
+      "Rapid prototyping, Early visibility and quick wins to demonstrate value",
+      "Clear governance, Safe and Ethical AI Framework",
+      "Collaborative delivery to co create solutions",
+      "Designing solutions that grow with your organisation",
+    ],
+  },
+  {
     icon: LineChart,
     title: "Data Analytics & Visualisation",
     description:
@@ -92,29 +115,7 @@ const services = [
       "Risk & Issues Management",
     ],
   },
-  {
-    icon: Users2,
-    title: "AI Consultancy",
-    description:
-      "We help organisations adopt AI responsibly, effectively, and in ways that create real business value. Our approach focuses on identifying practical use cases, improving operational efficiency, and ensuring AI is implemented with the right governance, controls, and ethical considerations. Whether you’re exploring AI for the first time or scaling existing capabilities, we guide you through every step of the journey.",
-    features: [],
-    detailedDescription:
-      "",
-    benefits: [
-      "AI readiness assessments to evaluate current capabilities, risks, and opportunities",
-      "Use case identification & prioritisation aligned to business goals",
-      "AI powered automation solutions to streamline processes and reduce manual effort",
-      "Proof of concept development to validate ideas quickly and cost effectively",
-      "Training & adoption support to help teams understand and use AI confidently.",
-    ],
-    process: [
-      "We focus on Business first approach solving real problems",
-      "Rapid prototyping, Early visibility and quick wins to demonstrate value",
-      "Clear governance, Safe and Ethical AI Framework",
-      "Collaborative delivery to co create solutions",
-      "Designing solutions that grow with your organisation",
-    ],
-  },
+  
 ];
 
 const ServicesSection = () => {
