@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Mail, MapPin, Phone, Send, CheckCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import SectionHeader from "@/components/SectionHeader";
 
 const contactInfo = [
   {
@@ -19,15 +21,47 @@ const contactInfo = [
   },
 ];
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 const ContactSection = () => {
   const ref = useRef(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    if (!formRef.current) return;
+
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      console.error("Missing EmailJS environment variables");
+      setStatus("error");
+      return;
+    }
+
+    setIsSubmitting(true);
+    emailjs
+      .sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setStatus("success");
+        formRef.current?.reset();
+      })
+      .catch((error) => {
+        console.error("EmailJS error", error);
+        setStatus("error");
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+        setTimeout(() => setStatus("idle"), 4000);
+      });
   };
 
   return (
@@ -36,32 +70,18 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Content */}
           <div>
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="text-accent font-semibold uppercase tracking-wider text-sm"
-            >
-              Contact Us
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mt-3 text-3xl md:text-4xl lg:text-5xl font-display font-bold"
-            >
-              Let's Start a{" "}
-              <span className="text-gradient-gold">Conversation</span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-4 text-lg text-muted-foreground"
-            >
-              Ready to transform your business? Get in touch with our team to
-              discuss how we can help you achieve your goals.
-            </motion.p>
+            <SectionHeader
+              align="left"
+              eyebrow="Contact Us"
+              title={
+                <>
+                  Let's Start a{" "}
+                  <span className="text-gradient-gold">Conversation</span>
+                </>
+              }
+              description="Ready to transform your business? Get in touch with our team to discuss how we can help you achieve your goals."
+              className="max-w-2xl"
+            />
 
             {/* Contact Info */}
             <div className="mt-10 space-y-6">
@@ -94,6 +114,7 @@ const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="bg-card p-8 rounded-2xl shadow-card space-y-6"
             >
@@ -104,7 +125,9 @@ const ContactSection = () => {
                   </label>
                   <Input
                     placeholder="John"
+                    name="user_name"
                     className="bg-background border-border focus:border-accent focus:ring-accent"
+                    required
                   />
                 </div>
                 <div className="space-y-2">
@@ -112,7 +135,8 @@ const ContactSection = () => {
                     Phone Number
                   </label>
                   <Input
-                    placeholder="Doe"
+                    placeholder="+1 (555) 123-4567"
+                    name="user_phone"
                     className="bg-background border-border focus:border-accent focus:ring-accent"
                   />
                 </div>
@@ -125,7 +149,9 @@ const ContactSection = () => {
                 <Input
                   type="email"
                   placeholder="john@company.com"
+                  name="user_email"
                   className="bg-background border-border focus:border-accent focus:ring-accent"
+                  required
                 />
               </div>
 
@@ -135,6 +161,7 @@ const ContactSection = () => {
                 </label>
                 <Input
                   placeholder="Your Company"
+                  name="company"
                   className="bg-background border-border focus:border-accent focus:ring-accent"
                 />
               </div>
@@ -145,6 +172,7 @@ const ContactSection = () => {
                 </label>
                 <Input
                   placeholder="Service of Interest"
+                  name="service"
                   className="bg-background border-border focus:border-accent focus:ring-accent"
                 />
               </div>
@@ -156,29 +184,37 @@ const ContactSection = () => {
                 <Textarea
                   placeholder="Tell us about your project..."
                   rows={4}
+                  name="message"
                   className="bg-background border-border focus:border-accent focus:ring-accent resize-none"
                 />
               </div>
 
-              <Button
-                type="submit"
-                variant="gold"
-                size="lg"
-                className="w-full"
-                disabled={isSubmitted}
-              >
-                {isSubmitted ? (
-                  <>
-                    <CheckCircle className="w-5 h-5 mr-2" />
-                    Message Sent!
-                  </>
-                ) : (
-                  <>
-                    Send Message
-                    <Send className="w-5 h-5 ml-2" />
-                  </>
+              <div className="space-y-3">
+                <Button
+                  type="submit"
+                  variant="gold"
+                  size="lg"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {status === "success" ? (
+                    <>
+                      <CheckCircle className="w-5 h-5 mr-2" />
+                      Message Sent!
+                    </>
+                  ) : (
+                    <>
+                      {isSubmitting ? "Sending" : "Send Message"}
+                      <Send className="w-5 h-5 ml-2" />
+                    </>
+                  )}
+                </Button>
+                {status === "error" && (
+                  <p className="text-sm text-destructive text-center">
+                    Something went wrong. Please try again or email Info@inhanceconsulting.com.
+                  </p>
                 )}
-              </Button>
+              </div>
             </form>
           </motion.div>
         </div>

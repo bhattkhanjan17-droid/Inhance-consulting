@@ -1,390 +1,493 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import {
-  BarChart3,
-  Briefcase,
-  Cpu,
-  LineChart,
-  Settings,
-  Users2,
   ArrowRight,
-  X,
+  Brain,
   CheckCircle,
+  KanbanSquare,
+  LineChart,
+  ShieldCheck,
+  Workflow,
 } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import SectionHeader from "@/components/SectionHeader";
 
 const services = [
   {
-    icon: Users2,
-    title: "AI Consultancy",
+    icon: Brain,
+    title: "AI Consulting & Intelligent Automation",
     description:
-      "We help organisations adopt AI responsibly, effectively, and in ways that create real business value. Our approach focuses on identifying practical use cases, improving operational efficiency, and ensuring AI is implemented with the right governance, controls, and ethical considerations. Whether you’re exploring AI for the first time or scaling existing capabilities, we guide you through every step of the journey.",
+      "Our AI Consulting services help organisations harness the power of artificial intelligence to accelerate performance, unlock efficiencies, and create new sources of value. From identifying high impact AI opportunities to building and integrating custom solutions, we guide you through every stage of your AI transformation journey.",
     features: [],
-    detailedDescription:
-      "",
-    benefits: [
-      "AI readiness assessments to evaluate current capabilities, risks, and opportunities",
-      "Use case identification & prioritisation aligned to business goals",
-      "AI powered automation solutions to streamline processes and reduce manual effort",
-      "Proof of concept development to validate ideas quickly and cost effectively",
-      "Training & adoption support to help teams understand and use AI confidently.",
+    detailedDescription: "",
+    capabilities: [
+      {
+        title: "AI Consulting",
+        description:
+          "Strategic guidance to identify high value AI use cases, assess readiness, and shape a roadmap that aligns with your business goals.",
+      },
+      {
+        title: "Custom AI Solutions",
+        description:
+          "Tailored AI models, automations, and intelligent tools designed to solve your unique operational and strategic challenges.",
+      },
+      {
+        title: "Data Intelligence",
+        description:
+          "Advanced analytics and machine learning capabilities that transform raw data into predictive insights and smarter decisions.",
+      },
+      {
+        title: "AI Integration",
+        description:
+          "Seamless integration of AI into your systems, workflows, and digital platforms — accelerating productivity, reducing manual effort, and enabling your teams to work smarter, not harder.",
+      },
+      {
+        title: "Model Optimisation",
+        description:
+          "Continuous tuning, retraining, and performance monitoring to keep your AI solutions accurate, efficient, and future ready.",
+      },
     ],
-    process: [
-      "We focus on Business first approach solving real problems",
-      "Rapid prototyping, Early visibility and quick wins to demonstrate value",
-      "Clear governance, Safe and Ethical AI Framework",
-      "Collaborative delivery to co create solutions",
-      "Designing solutions that grow with your organisation",
+    approach: [
+      {
+        title: "Discovery & Strategy",
+        description:
+          "We begin by understanding your goals, challenges, and data landscape. This helps us identify the most impactful AI opportunities and define a clear, actionable roadmap.",
+      },
+      {
+        title: "Design & Development",
+        description:
+          "Frame use cases, test feasibility, and produce a prototype in weeks, not months.",
+      },
+      {
+        title: "Deployment & Support",
+        description:
+          "We integrate AI seamlessly into your environment, ensure smooth adoption, and provide ongoing optimisation and support to maintain long term value.",
+      },
     ],
   },
   {
     icon: LineChart,
     title: "Data Analytics & Visualisation",
     description:
-      "We help organisations turn data into meaningful insights through advanced analytics, automation, and intuitive visualisation.",
+      "We transform data into meaningful insights through advanced analytics, automation, and intuitive visualisation. Our solutions empower smarter decisions, stronger governance, and scalable growth.",
     features: [],
-    detailedDescription:
-      "",
-    benefits: [
-      "Collaborative workshops to understand business needs",
-      "Rapid prototyping for early visibility",
-      "Scalable data models and governance frameworks",
-      "User friendly dashboards designed for decision makers",
-      "Wide Range of Standard (Power Bi, Tableau etc.), and Customized tools/reports",
+    detailedDescription: "",
+    capabilities: [
+      {
+        title: "Data Driven Insights",
+        description:
+          "We build analytics solutions that uncover trends, risks, and opportunities to support smarter decision making.",
+      },
+      {
+        title: "Modern BI & Automation Tools",
+        description:
+          "We work across Power BI, Power Automate, Power Apps, Power Pages, Databricks, Tableau, and Qlik Sense to deliver scalable, secure, and future ready solutions.",
+      },
+      {
+        title: "Tailored Analytics Strategy",
+        description:
+          "We design data strategies aligned to your business needs, ensuring clarity, governance, and continuous improvement.",
+      },
+      {
+        title: "Productivity & Efficiency Gains",
+        description:
+          "Our solutions streamline processes, enhance security, and enable scalable growth across your organisation.",
+      }
     ],
-    process: [
-      "Dashboard design & development",
-      "Data modelling & data quality improvement",
-      "KPI frameworks & performance reporting",
-      "Automated reporting solutions",
-      "Insight generation & storytelling with data",
+    approach: [
+      {
+        title: "End to End Analytics Delivery",
+        description:
+          "We design, build, and integrate analytics solutions that fit seamlessly into your existing technology landscape.",
+      },
+      {
+        title: "Expertise + Industry Leading Tools",
+        description:
+          "Our PMO, analytics, and visualisation specialists combine deep expertise with proven accelerators to deliver measurable value.",
+      },
+      {
+        title: "Tailored, Insight Led Solutions",
+        description:
+          "We create solutions that reflect your unique context, ensuring clarity, usability, and long-term adoption.",
+      },
+      {
+        title: "Strategic Enablement",
+        description:
+          "We help your teams understand and leverage data effectively, empowering confident, insight driven decisions.",
+      },
     ],
   },
   {
-    icon: Settings,
-    title: "Product/Project Delivery & Management",
+    icon: Workflow,
+    title: "Digital Project Management",
     description:
-      "We help organisations deliver Product/Projects with confidence, clarity, and control. Our team brings structured delivery expertise, proven methodologies, and hands‑on experience to ensure projects are executed on time, within budget, and to the highest standard.",
+      "We lead digital initiatives from planning to delivery, ensuring clarity, control, and alignment at every stage. Our experienced project managers bring structure, transparency, and discipline to complex digital programmes.",
     features: [],
-    detailedDescription:
-      "",
-    benefits: [
-      "Certified project managers with multi industry experience",
-      "Transparent reporting and Structured governance",
-      "Structured delivery frameworks tailored to your organisation",
-      "Prioritising value, quality, and measurable results at every stage",
-      "Consistent communication and alignment across teams",
+    detailedDescription: "",
+    capabilities: [
+      {
+        title: "End to End Project Delivery",
+        description:
+          "We plan, manage, and orchestrate digital initiatives from initiation to implementation.",
+      },
+      {
+        title: "Cross Industry Expertise",
+        description:
+          "Our project managers bring experience from small implementations to global transformation programmes.",
+      },
+      {
+        title: "Tailored Delivery Frameworks",
+        description:
+          "We adapt Agile, Waterfall, or hybrid approaches to suit your project’s needs.",
+      },
+      {
+        title: "Risk & Stakeholder Management",
+        description:
+          "We ensure clear communication, proactive risk control, and alignment across all stakeholders.",
+      },
     ],
-    process: [
-      "End to end Product/Project management",
-      "Project setup & governance",
-      "Risk, issue, and dependency management",
-      "Stakeholder engagement & communication planning",
-      "Agile, Waterfall, and hybrid delivery models",
+    approach: [
+      {
+        title: "Experienced Delivery Leadership",
+        description:
+          "Our project managers bring proven methods, industry insights, and structured governance.",
+      },
+      {
+        title: "Clear, Transparent Execution",
+        description:
+          "We provide consistent reporting, milestone tracking, and issue management to keep delivery on course.",
+      },
+      {
+        title: "Modern Tools & Methodologies",
+        description:
+          "We use cutting edge delivery tools and best practices to ensure efficiency and quality.",
+      },
+      {
+        title: "Outcome Focused Approach",
+        description:
+          "Every project is delivered with a focus on value, timelines, and measurable results.",
+      },
+          ],
+  },
+  {
+    icon: KanbanSquare,
+    title: "Project & Programme PMO",
+    description:
+      "We build PMO functions that bring rigour, visibility, and consistency to delivery. Our frameworks, dashboards, and governance models ensure projects and programmes stay on track and deliver real business value.",
+    features: [],
+    detailedDescription: "",
+    capabilities: [
+      {
+        title: "PMO Setup & Governance",
+        description:
+          "We define scope, governance, processes, and reporting frameworks tailored to your organisation.",
+      },
+      {
+        title: "Portfolio Visibility",
+        description:
+          "We create dashboards and reporting tools that track delivery health, risks, and performance.",
+      },
+      {
+        title: "Delivery Assurance",
+        description:
+          "We monitor progress, manage dependencies, and ensure milestones are achieved on time and within budget.",
+      },
+      {
+        title: "Methodology Enablement",
+        description:
+          "We apply Agile, DevOps, and Lean Six Sigma practices to strengthen delivery capability.",
+      },
+    ],
+    approach: [
+      {
+        title: "Balanced Rigour & Flexibility",
+        description:
+          "Our PMO model combines structure with adaptability to support evolving programme needs.",
+      },
+      {
+        title: "Hands On Delivery Support",
+        description:
+          "We work closely with teams to manage risks, issues, and dependencies proactively.",
+      },
+      {
+        title: "Tailored PMO Toolkits",
+        description:
+          "We deploy frameworks, templates, and dashboards designed specifically for your context.",
+      },
+      {
+        title: "Value Driven Governance",
+        description:
+          "Our PMO approach ensures alignment, accountability, and measurable business outcomes.",
+      },
     ],
   },
   {
-    icon: Cpu,
-    title: "Digital Product/Project Management Office (Digital PMO)",
+    icon: ShieldCheck,
+    title: "Value Assurance & Benefits Management",
     description:
-      "We modernise traditional PMOs by integrating digital tools, automation, and real‑time reporting to create a more efficient, transparent, and insight‑driven project environment. Our Digital PMO approach enhances governance, streamlines workflows, and provides leaders with the visibility they need to make faster, smarter decisions.",
+      "We ensure digital investments deliver the outcomes they promise. Through structured benefits planning, tracking, and assurance, we help organisations maximise ROI and maintain accountability throughout the transformation lifecycle.",
     features: [],
-    detailedDescription:
-      "",
-    benefits: [
-      "Assessment of current PMO maturity",
-      "Implementation of digital tools (Power Platform, Jira, Smartsheet, etc.)",
-      "Training and change management",
-      "Proven Delivery and Operating Model",
-      "Centre of Excellence- Continuous Improvement",
+    detailedDescription: "",
+    capabilities: [
+      {
+        title: "Benefits Identification & Planning",
+        description:
+          "We define expected benefits, value drivers, KPIs, and OKRs aligned to programme goals.",
+      },
+      {
+        title: "Benefits Realisation Frameworks",
+        description:
+          "We create structured plans that outline how, when, and where value will be delivered.",
+      },
+      {
+        title: "Progress Tracking & Reporting",
+        description:
+          "We monitor benefits throughout the programme lifecycle and provide transparent reporting.",
+      },
+      {
+        title: "Investment Optimisation",
+        description:
+          "We help organisations maximise ROI by identifying value leakage and recommending corrective actions.",
+      },
     ],
-    process: [
-      "Digital PMO setup & transformation",
-      "Performance Management",
-      "Finance, Resource & capacity planning",
-      "Governance frameworks",
-      "Planning & Scheduling Management",
-      "Risk & Issues Management",
+    approach: [
+      {
+        title: "Collaborative Value Definition",
+        description:
+          "We work with stakeholders to align benefits with strategic objectives and business needs.",
+      },
+      {
+        title: "Continuous Monitoring & Assurance",
+        description:
+          "We track progress against OKRs and adjust plans as circumstances evolve.",
+      },
+      {
+        title: "Holistic View of People, Process & Technology",
+        description:
+          "Our approach considers all interdependencies to ensure benefits are realistic and achievable.",
+      },
+      {
+        title: "End to End Value Support",
+        description:
+          "From planning to realisation, we ensure your digital programmes stay on track to deliver measurable outcomes.",
+      },
     ],
   },
-  
 ];
 
+type Service = (typeof services)[0];
+
+
 const ServicesSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [selectedService, setSelectedService] = useState<
-    (typeof services)[0] | null
-  >(null);
+  const [activeService, setActiveService] = useState<Service>(services[0]);
+  const [activeInfoTab, setActiveInfoTab] = useState<"capabilities" | "approach">(
+    "capabilities"
+  );
 
   return (
     <section id="services" className="py-24">
-      <div className="container mx-auto px-6" ref={ref}>
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="text-accent font-semibold uppercase tracking-wider text-sm"
-          >
-            Our Services
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-3 text-3xl md:text-4xl lg:text-5xl font-display font-bold"
-          >
-            Comprehensive Solutions for{" "}
-            <span className="text-gradient-gold">Every Challenge</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-4 text-lg text-muted-foreground"
-          >
-            We offer end-to-end consulting services tailored to meet the unique
-            needs of your organization.
-          </motion.p>
-        </div>
+      <div className="container mx-auto px-6">
+        <SectionHeader
+          eyebrow="Our Services"
+          title={
+            <>
+              Comprehensive Solutions for{" "}
+              <span className="text-gradient-gold">Every Challenge</span>
+            </>
+          }
+          description="At Inhance, we help organisations navigate digital transformation with confidence. Our services are designed to enhance performance, strengthen delivery, and unlock measurable value across your business. With deep expertise in technology, project delivery, and value realisation, we partner with you to turn strategy into outcomes through four core service areas."
+          className="mb-16 max-w-3xl"
+        />
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="group relative bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 overflow-hidden cursor-pointer"
-              onClick={() => setSelectedService(service)}
-            >
-              {/* Hover gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        {/* Timeline / Accordion Layout */}
+        <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
+          <div className="relative">
+            <div className="hidden lg:block absolute left-4 top-4 bottom-4 bg-border" />
+            <div className="space-y-4">
+              {services.map((service, index) => {
+                const isActive = activeService.title === service.title;
+                return (
+                  <button
+                    key={service.title}
+                    type="button"
+                    onClick={() => setActiveService(service)}
+                    className={`w-full text-left rounded-2xl border px-4 py-5 transition-all duration-200 ${
+                      isActive
+                        ? "border-accent bg-accent/10 shadow-card"
+                        : "border-border bg-card/60 hover:border-accent/60"
+                    }`}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div
+                        className={`mt-1 w-10 h-10 rounded-full flex items-center justify-center ${
+                          isActive
+                            ? "bg-accent text-accent-foreground"
+                            : "bg-muted text-muted-foreground"
+                        }`}
+                      >
+                        <service.icon
+                          className={`w-5 h-5 ${
+                            isActive ? "text-accent-foreground" : "text-muted-foreground"
+                          }`}
+                        />
+                      </div>
+                      <div>
+                        {/* <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                          Capability
+                        </p> */}
+                        <p className="mt-1 font-medium leading-tight">
+                          {service.title}
+                        </p>
+                        {/* <p className="mt-2 text-sm text-muted-foreground">
+                          {service.description}
+                        </p> */}
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
-              <div className="relative z-10">
-                <div className="w-14 h-14 bg-gradient-gold rounded-xl flex items-center justify-center mb-6">
-                  <service.icon className="w-7 h-7 text-foreground" />
+          <motion.div
+            key={activeService.title}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="bg-card/80 rounded-3xl border border-border shadow-card p-6 md:p-8 space-y-6"
+          >
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-gold flex items-center justify-center">
+                  <activeService.icon className="w-6 h-6 text-foreground" />
                 </div>
-
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground mb-6">
-                  {service.description}
-                </p>
-
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-center gap-2 text-sm text-muted-foreground"
-                    >
-                      <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <button className="inline-flex items-center gap-2 text-sm font-semibold text-foreground group-hover:text-accent transition-colors">
-                  Learn More
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.4em] text-accent font-semibold">
+                    Focus Area
+                  </p>
+                  <h3 className="text-2xl font-display font-semibold">
+                    {activeService.title}
+                  </h3>
+                </div>
               </div>
-            </motion.div>
-          ))}
+              <p className="text-base text-muted-foreground">
+                {activeService.description}
+              </p>
+            </div>
+
+            {activeService.detailedDescription && (
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                {activeService.detailedDescription}
+              </p>
+            )}
+
+            {activeService.features.length > 0 && (
+              <div>
+                <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3">
+                  Highlights
+                </h4>
+                <div className="grid gap-3 md:grid-cols-2">
+                  {activeService.features.map((feature) => (
+                    <div
+                      key={feature}
+                      className="flex items-start gap-3 rounded-2xl border border-border/60 bg-secondary/40 p-3"
+                    >
+                      <div className="w-2 h-2 rounded-full bg-accent mt-2" />
+                      <span className="text-sm text-muted-foreground">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div>
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                {/* <div>
+                  <h4 className="font-semibold text-lg">Our Capabilities</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Toggle between the services we provide and the way we deliver them.
+                  </p>
+                </div> */}
+                <div className="flex rounded-full border border-border bg-card/60 p-1">
+                  {[
+                    { key: "capabilities", label: "Our Capabilities" },
+                    { key: "approach", label: "Our Approach" },
+                  ].map(({ key, label }) => (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => setActiveInfoTab(key as "capabilities" | "approach")}
+                      className={`px-4 py-2 text-sm font-semibold rounded-full transition-colors ${
+                        activeInfoTab === key
+                          ? "bg-accent text-accent-foreground"
+                          : "text-muted-foreground"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                {(activeInfoTab === "capabilities"
+                  ? activeService.capabilities
+                  : activeService.approach
+                ).map((item) => (
+                  <div
+                    key={item.title}
+                    className="group border border-border/60 rounded-2xl bg-card/50 p-4 hover:border-accent/60 transition-colors"
+                  >
+                    {/* <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2">
+                      {activeInfoTab === "capabilities" ? "Capability" : "Approach"}
+                    </p> */}
+                    <h5 className="text-lg font-semibold text-foreground">
+                      {item.title}
+                    </h5>
+                    <p className="text-sm text-muted-foreground mt-2">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* <div>
+              <h4 className="font-semibold text-lg mb-4">Why clients choose us</h4>
+              <div className="space-y-3">
+                {activeService.benefits.map((benefit) => (
+                  <div
+                    key={benefit}
+                    className="flex items-start gap-3 rounded-2xl border border-border/60 bg-secondary/40 p-4"
+                  >
+                    <CheckCircle className="w-5 h-5 text-accent mt-0.5" />
+                    <span className="text-sm text-foreground">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+            </div> */}
+
+            <div className="flex flex-wrap gap-4 pt-4 border-t border-border">
+              <Button
+                variant="gold"
+                size="lg"
+                onClick={() => {
+                  const element = document.querySelector("#contact");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                Talk to our team
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+              {/* <Button variant="outline" size="lg">
+                Download overview
+              </Button> */}
+            </div>
+          </motion.div>
         </div>
       </div>
-
-      {/* Service Detail Dialog */}
-      <Dialog
-        open={!!selectedService}
-        onOpenChange={() => setSelectedService(null)}
-      >
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-          {selectedService && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              <DialogHeader>
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
-                  className="flex items-center gap-4 mb-2"
-                >
-                  <motion.div
-                    initial={{ scale: 0, rotate: -180 }}
-                    animate={{ scale: 1, rotate: 0 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 200,
-                      damping: 15,
-                      delay: 0.2,
-                    }}
-                    className="w-14 h-14 bg-gradient-gold rounded-xl flex items-center justify-center"
-                  >
-                    <selectedService.icon className="w-7 h-7 text-foreground" />
-                  </motion.div>
-                  <div>
-                    <DialogTitle className="text-2xl font-display">
-                      {selectedService.title}
-                    </DialogTitle>
-                    {/* <DialogDescription className="text-muted-foreground">
-                      {selectedService.description}
-                    </DialogDescription> */}
-                  </div>
-                </motion.div>
-              </DialogHeader>
-
-              <div className="space-y-6 mt-4">
-                {/* Detailed Description */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                >
-                  <p className="text-foreground leading-relaxed">
-                    {selectedService.detailedDescription}
-                  </p>
-                </motion.div>
-
-                {/* Process */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.3 }}
-                >
-                  <h4 className="font-semibold text-lg mb-4">What we offer</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {selectedService.process.map((step, index) => (
-                      <motion.div
-                        key={step}
-                        initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        transition={{
-                          duration: 0.4,
-                          delay: 0.4 + index * 0.1,
-                          type: "spring",
-                          stiffness: 150,
-                        }}
-                        className="relative bg-secondary rounded-xl p-4 text-center"
-                      >
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 15,
-                            delay: 0.5 + index * 0.1,
-                          }}
-                          className="w-8 h-8 bg-accent text-accent-foreground rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold"
-                        >
-                          {index + 1}
-                        </motion.div>
-                        <span className="text-sm font-medium">{step}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-
-                {/* Benefits */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.5 }}
-                >
-                  <h4 className="font-semibold text-lg mb-4">How we do it</h4>
-                  <div className="grid gap-3">
-                    {selectedService.benefits.map((benefit, index) => (
-                      <motion.div
-                        key={benefit}
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.4,
-                          delay: 0.6 + index * 0.08,
-                          ease: "easeOut",
-                        }}
-                        className="flex items-start gap-3 p-3 bg-secondary/50 rounded-lg"
-                      >
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 15,
-                            delay: 0.7 + index * 0.08,
-                          }}
-                        >
-                          <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                        </motion.div>
-                        <span className="text-sm text-foreground">
-                          {benefit}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-
-                {/* CTA */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 1 }}
-                  className="flex gap-4 pt-4 border-t border-border"
-                >
-                  <motion.div
-                    className="flex-1"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Button
-                      variant="gold"
-                      size="lg"
-                      className="w-full"
-                      onClick={() => {
-                        setSelectedService(null);
-                        const element = document.querySelector("#contact");
-                        if (element) {
-                          element.scrollIntoView({ behavior: "smooth" });
-                        }
-                      }}
-                    >
-                      Get Started
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      onClick={() => setSelectedService(null)}
-                    >
-                      Close
-                    </Button>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </motion.div>
-          )}
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };

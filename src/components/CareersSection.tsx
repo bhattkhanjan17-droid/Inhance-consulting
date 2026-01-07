@@ -5,6 +5,7 @@ import { ArrowRight, Sparkles, Coffee, Heart, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import SectionHeader from "@/components/SectionHeader";
 
 const perks = [
   { icon: Sparkles, label: "Competitive Compensation" },
@@ -30,30 +31,13 @@ const CareersSection = () => {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Content */}
           <div>
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="text-accent font-semibold uppercase tracking-wider text-sm"
-            >
-              Careers
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mt-3 text-3xl md:text-4xl lg:text-5xl font-display font-bold"
-            >
-              Join Our Team {" "}
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-4 text-lg text-muted-foreground"
-            >
-              We’re always looking for talented individuals who are passionate about data, technology, and delivery excellence.
-            </motion.p>
+            <SectionHeader
+              align="left"
+              eyebrow="Careers"
+              title="Join Our Team"
+              description="We’re always looking for talented individuals who are passionate about data, technology, and delivery excellence."
+              className="max-w-2xl"
+            />
 
             {/* Perks */}
             <motion.div

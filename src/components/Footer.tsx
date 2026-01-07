@@ -8,10 +8,11 @@ const footerLinks = {
     { label: "Careers", href: "#careers" },
   ],
   services: [
-    { label: "Strategy", href: "#services" },
-    { label: "Operations", href: "#services" },
-    { label: "Technology", href: "#services" },
-    { label: "Financial Advisory", href: "#services" },
+    { label: "Retail & E-commerce", href: "#services" },
+    { label: "Healthcare & Life Sciences", href: "#services" },
+    { label: "Finance & Insurance", href: "#services" },
+    { label: "Manufacturing & Logistics", href: "#services" },
+    { label: "Education & EdTech", href: "#services" },
   ],
   resources: [
     { label: "Case Studies", href: "#case-studies" },
@@ -91,7 +92,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Services</h3>
+            <h3 className="font-semibold mb-4">Industries</h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>

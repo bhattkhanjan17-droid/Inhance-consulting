@@ -2,25 +2,26 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, Globe, Lightbulb, Shield } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 const values = [
   {
     icon: Lightbulb,
     title: "Innovation First",
     description:
-      "Applying modern, forward thinking tools to drive digital transformation.",
+      "We embrace modern technologies, emerging tools, and forward thinking approaches to solve complex problems. At Inhance, innovation isn’t just about adopting the latest trends—it’s about applying the right solutions to unlock new possibilities and accelerate digital transformation.",
   },
   {
     icon: Shield,
     title: "Collaboration",
     description:
-      "Working closely with clients to co create practical, scalable solutions.",
+      "We partner closely with our clients, working as an extension of their teams. By understanding their goals, challenges, and operating realities, we cocreate solutions that are practical, scalable, and aligned with long term success.",
   },
   {
     icon: Globe,
     title: "Impact",
     description:
-      "Focusing on outcomes that create real, lasting value.",
+      "We measure our success by the outcomes we deliver. Every engagement is driven by a commitment to excellence, integrity, and accountability—ensuring our work creates real, measurable value for our clients and their organisations.",
   },
 ];
 
@@ -34,19 +35,17 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div className="space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="text-accent font-semibold uppercase tracking-wider">
-                About Us
-              </span>
-              <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-display font-bold">
-                Elevating Businesses to{" "}
-                <span className="text-gradient-gold">New Heights</span>
-              </h2>
-            </motion.div>
+            <SectionHeader
+              align="left"
+              eyebrow="About Us"
+              title={
+                <>
+                  Elevating Businesses to{" "}
+                  <span className="text-gradient-gold">New Heights</span>
+                </>
+              }
+              className="max-w-2xl"
+            />
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -59,7 +58,10 @@ const AboutSection = () => {
               </span>
               <p>We believe that technology should enhance human capability — not replace it. 
               Our approach blends deep technical expertise with practical delivery experience, 
-              ensuring solutions that are scalable, sustainable, and aligned with real business needs.</p>
+              ensuring solutions that are scalable, sustainable, and aligned with real business needs.
+              Our philosophy is built on three core pillars—Collaboration, Innovation, and Impact—which shape how we work and the value we deliver.
+              Together, these pillars define who we are: a consulting partner dedicated to enhancing performance, enabling transformation, and empowering businesses to move confidently into the future.
+              We recognise that the best results come from working closely with our clients, understanding their needs, and working together to develop solutions that meet their unique challenges. We listen carefully to our clients, ask questions, and share our expertise to ensure that we work together to achieve our shared goals.</p>
             </motion.p>
 
             <motion.p

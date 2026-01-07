@@ -10,6 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import SectionHeader from "@/components/SectionHeader";
 
 type CaseStudy = {
   category: string;
@@ -89,37 +90,19 @@ const CaseStudiesSection = () => {
       <div className="container mx-auto px-6" ref={ref}>
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-          <div className="space-y-4 max-w-3xl">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="text-accent font-semibold uppercase tracking-wider text-sm"
-            >
-              Case Studies & Best Practices
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mt-3 text-3xl md:text-4xl lg:text-5xl font-display font-bold"
-            >
-              Proven Results,{" "}
-              <span className="text-accent">Real Impact</span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-primary-foreground/80 text-base leading-relaxed"
-            >
-              With over a decade of cross industry experience, Inhance Consulting
-              helps organisations improve delivery performance, strengthen
-              governance, and unlock value through data driven insights and
-              modern PMO practices. Below is a snapshot of how we supported a
-              global energy client in transforming a major portfolio.
-            </motion.p>
-          </div>
+          <SectionHeader
+            align="left"
+            tone="onDark"
+            eyebrow="Case Studies & Best Practices"
+            title={
+              <>
+                Proven Results,{" "}
+                <span className="text-accent">Real Impact</span>
+              </>
+            }
+            description="With over a decade of cross industry experience, Inhance Consulting helps organisations improve delivery performance, strengthen governance, and unlock value through data driven insights and modern PMO practices. Below is a snapshot of how we supported a global energy client in transforming a major portfolio."
+            className="max-w-3xl"
+          />
           {/* <motion.button
             initial={{ opacity: 0, x: 20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
