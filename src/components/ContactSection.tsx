@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Mail, MapPin, Phone, Send, CheckCircle } from "lucide-react";
-import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,10 +20,6 @@ const contactInfo = [
   },
 ];
 
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
 const ContactSection = () => {
   const ref = useRef(null);
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -36,32 +31,8 @@ const ContactSection = () => {
     e.preventDefault();
     if (!formRef.current) return;
 
-    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-      console.error("Missing EmailJS environment variables");
-      setStatus("error");
-      return;
-    }
-
     setIsSubmitting(true);
-    emailjs
-      .sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        EMAILJS_PUBLIC_KEY
-      )
-      .then(() => {
-        setStatus("success");
-        formRef.current?.reset();
-      })
-      .catch((error) => {
-        console.error("EmailJS error", error);
-        setStatus("error");
-      })
-      .finally(() => {
-        setIsSubmitting(false);
-        setTimeout(() => setStatus("idle"), 4000);
-      });
+    
   };
 
   return (
