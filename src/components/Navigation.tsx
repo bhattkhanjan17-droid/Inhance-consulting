@@ -8,7 +8,7 @@ const navItems = [
   { label: "Home", href: "#home" },
   { label: "About Us", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Case Studies", href: "#case-studies" },
+  // { label: "Case Studies", href: "#case-studies" },
   { label: "Careers", href: "#careers" },
   { label: "Contact", href: "#contact" },
 ];
@@ -41,8 +41,8 @@ const Navigation = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-card/95 backdrop-blur-md shadow-card"
-            : "bg-transparent"
+            ? "bg-[#182534]/95 backdrop-blur-md shadow-card"
+            : "bg-[#182534]"
         }`}
       >
         <div className="container mx-auto px-6 py-4">
@@ -72,7 +72,7 @@ const Navigation = () => {
                 <motion.button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="px-4 py-2 text-base font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                  className="px-4 py-2 text-base font-medium text-white/80 hover:text-white transition-colors relative group"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -91,7 +91,7 @@ const Navigation = () => {
               className="hidden lg:block"
             >
               <Button
-                variant="gold"
+                variant="highlight"
                 size="default"
                 onClick={() => scrollToSection("#contact")}
               >
@@ -103,7 +103,7 @@ const Navigation = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden"
+              className="lg:hidden text-white"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -119,7 +119,7 @@ const Navigation = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-x-0 top-[72px] z-40 bg-card/98 backdrop-blur-lg shadow-elevated lg:hidden"
+            className="fixed inset-x-0 top-[72px] z-40 bg-[#182534]/98 backdrop-blur-lg shadow-elevated lg:hidden"
           >
             <div className="container mx-auto px-6 py-6">
               <div className="flex flex-col gap-2">
@@ -127,7 +127,7 @@ const Navigation = () => {
                   <motion.button
                     key={item.href}
                     onClick={() => scrollToSection(item.href)}
-                    className="py-3 px-4 text-left text-xl font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
+                    className="py-3 px-4 text-left text-xl font-medium text-white/90 hover:bg-white/10 rounded-lg transition-colors"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
@@ -136,7 +136,7 @@ const Navigation = () => {
                   </motion.button>
                 ))}
                 <Button
-                  variant="gold"
+                  variant="highlight"
                   size="lg"
                   className="mt-4"
                   onClick={() => scrollToSection("#contact")}

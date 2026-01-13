@@ -48,7 +48,7 @@ const SectionHeader = ({
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.4 }}
           className={cn(
-            "inline-flex items-center justify-center rounded-full px-5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.45em] text-background bg-gradient-gold border border-white/10 backdrop-blur-sm",
+            "inline-flex items-center justify-center rounded-full px-5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.45em] text-[#182534] bg-gradient-gold border border-white/10 backdrop-blur-sm",
             align === "center" ? "mx-auto" : "",
             eyebrowClassName
           )}

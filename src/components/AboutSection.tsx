@@ -23,6 +23,12 @@ const values = [
     description:
       "We measure our success by the outcomes we deliver. Every engagement is driven by a commitment to excellence, integrity, and accountability—ensuring our work creates real, measurable value for our clients and their organisations.",
   },
+  {
+    icon: Award,
+    title: "Execution Excellence",
+    description:
+      "We turn ideas into reality through structured delivery, clear ownership, and disciplined project execution. Our focus is on timelines, quality, and accountability — ensuring solutions don’t just look good on paper, but work in practice.",
+  },
 ];
 
 const AboutSection = () => {
@@ -59,9 +65,7 @@ const AboutSection = () => {
               <p>We believe that technology should enhance human capability — not replace it. 
               Our approach blends deep technical expertise with practical delivery experience, 
               ensuring solutions that are scalable, sustainable, and aligned with real business needs.
-              Our philosophy is built on three core pillars—Collaboration, Innovation, and Impact—which shape how we work and the value we deliver.
-              Together, these pillars define who we are: a consulting partner dedicated to enhancing performance, enabling transformation, and empowering businesses to move confidently into the future.
-              We recognise that the best results come from working closely with our clients, understanding their needs, and working together to develop solutions that meet their unique challenges. We listen carefully to our clients, ask questions, and share our expertise to ensure that we work together to achieve our shared goals.</p>
+              </p>
             </motion.p>
 
             <motion.p

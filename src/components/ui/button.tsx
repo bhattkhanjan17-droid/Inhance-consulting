@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const brandButtonBase = "bg-[#182534] text-white hover:bg-[#1f3145]";
+const highlightButtonBase = "bg-[#7ed957] text-[#0b1a23] hover:bg-[#6bc347]";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
@@ -24,6 +25,7 @@ const buttonVariants = cva(
         hero: cn(brandButtonBase, "font-semibold hover:scale-[1.02]"),
         "hero-outline":
           "border-2 border-primary text-primary bg-transparent font-semibold hover:bg-primary hover:text-primary-foreground",
+        highlight: cn(highlightButtonBase, "font-semibold hover:shadow-card hover:scale-[1.02]"),
         nav: "text-foreground/80 hover:text-foreground font-medium bg-transparent",
       },
       size: {

@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Mail, MapPin, Phone, Send, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { useRef } from "react";
+import { Mail, Phone } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
+import EmbeddedForm from "@/components/EmbeddedForm";
 
 const contactInfo = [
   {
@@ -20,20 +18,12 @@ const contactInfo = [
   },
 ];
 
+const contactFormUrl =
+  "https://forms.office.com/Pages/ResponsePage.aspx?dummy-contact-form";
+
 const ContactSection = () => {
   const ref = useRef(null);
-  const formRef = useRef<HTMLFormElement | null>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!formRef.current) return;
-
-    setIsSubmitting(true);
-    
-  };
 
   return (
     <section id="contact" className="py-24 bg-secondary/30">
@@ -78,115 +68,19 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Form */}
+          {/* Embedded Form */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-card p-6 rounded-2xl shadow-card"
           >
-            <form
-              ref={formRef}
-              onSubmit={handleSubmit}
-              className="bg-card p-8 rounded-2xl shadow-card space-y-6"
-            >
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">
-                    Full Name
-                  </label>
-                  <Input
-                    placeholder="John"
-                    name="user_name"
-                    className="bg-background border-border focus:border-accent focus:ring-accent"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">
-                    Phone Number
-                  </label>
-                  <Input
-                    placeholder="+1 (555) 123-4567"
-                    name="user_phone"
-                    className="bg-background border-border focus:border-accent focus:ring-accent"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground">
-                  Email
-                </label>
-                <Input
-                  type="email"
-                  placeholder="john@company.com"
-                  name="user_email"
-                  className="bg-background border-border focus:border-accent focus:ring-accent"
-                  required
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground">
-                  Company
-                </label>
-                <Input
-                  placeholder="Your Company"
-                  name="company"
-                  className="bg-background border-border focus:border-accent focus:ring-accent"
-                />
-              </div>
-
-               <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground">
-                  Service of Interest
-                </label>
-                <Input
-                  placeholder="Service of Interest"
-                  name="service"
-                  className="bg-background border-border focus:border-accent focus:ring-accent"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground">
-                  Message
-                </label>
-                <Textarea
-                  placeholder="Tell us about your project..."
-                  rows={4}
-                  name="message"
-                  className="bg-background border-border focus:border-accent focus:ring-accent resize-none"
-                />
-              </div>
-
-              <div className="space-y-3">
-                <Button
-                  type="submit"
-                  variant="gold"
-                  size="lg"
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {status === "success" ? (
-                    <>
-                      <CheckCircle className="w-5 h-5 mr-2" />
-                      Message Sent!
-                    </>
-                  ) : (
-                    <>
-                      {isSubmitting ? "Sending" : "Send Message"}
-                      <Send className="w-5 h-5 ml-2" />
-                    </>
-                  )}
-                </Button>
-                {status === "error" && (
-                  <p className="text-sm text-destructive text-center">
-                    Something went wrong. Please try again or email Info@inhanceconsulting.com.
-                  </p>
-                )}
-              </div>
-            </form>
+            <EmbeddedForm
+              src={contactFormUrl}
+              title="Inhance Consulting Contact Form"
+              height={720}
+              fallbackLabel="Open the contact form"
+            />
           </motion.div>
         </div>
       </div>

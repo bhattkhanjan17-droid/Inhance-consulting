@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
+  ArrowDown,
   ArrowRight,
   Brain,
   CheckCircle,
@@ -429,27 +430,52 @@ const ServicesSection = () => {
                 </div>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-2">
-                {(activeInfoTab === "capabilities"
-                  ? activeService.capabilities
-                  : activeService.approach
-                ).map((item) => (
-                  <div
-                    key={item.title}
-                    className="group border border-border/60 rounded-2xl bg-card/50 p-4 hover:border-accent/60 transition-colors"
-                  >
-                    {/* <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2">
-                      {activeInfoTab === "capabilities" ? "Capability" : "Approach"}
-                    </p> */}
-                    <h5 className="text-lg font-semibold text-foreground">
-                      {item.title}
-                    </h5>
-                    <p className="text-sm text-muted-foreground mt-2">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              {activeInfoTab === "capabilities" ? (
+                <div className="grid gap-4 md:grid-cols-2">
+                  {activeService.capabilities.map((item) => (
+                    <div
+                      key={item.title}
+                      className="group border border-border/60 rounded-2xl bg-card/50 p-4 hover:border-accent/60 transition-colors"
+                    >
+                      <h5 className="text-lg font-semibold text-foreground">
+                        {item.title}
+                      </h5>
+                      <p className="text-sm text-muted-foreground mt-2">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {activeService.approach.map((item, index) => (
+                    <div key={item.title} className="space-y-2">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-full bg-[#182534] text-white flex items-center justify-center shadow-card shrink-0 font-semibold">
+                          {String(index + 1).padStart(2, "0")}
+                        </div>
+                        <div className="flex-1 border border-border/60 rounded-2xl bg-card/50 p-4 hover:border-accent/60 transition-colors">
+                          <h5 className="text-lg font-semibold text-foreground">
+                            {item.title}
+                          </h5>
+                          <p className="text-sm text-muted-foreground mt-2">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+                      {index < activeService.approach.length - 1 && (
+                        <div className="flex items-center gap-3 text-[#182534]">
+                          <span className="h-px flex-1 bg-[#182534]/15" />
+                          <div className="w-8 h-8 rounded-full bg-gradient-gold border border-white/30 shadow-card flex items-center justify-center">
+                            <ArrowDown className="w-4 h-4" />
+                          </div>
+                          <span className="h-px flex-1 bg-[#182534]/15" />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* <div>

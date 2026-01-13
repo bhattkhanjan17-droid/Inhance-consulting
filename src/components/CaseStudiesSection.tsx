@@ -89,7 +89,7 @@ const CaseStudiesSection = () => {
     <section id="case-studies" className="py-24 bg-primary text-primary-foreground">
       <div className="container mx-auto px-6" ref={ref}>
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        {/* <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <SectionHeader
             align="left"
             tone="onDark"
@@ -103,7 +103,7 @@ const CaseStudiesSection = () => {
             description="With over a decade of cross industry experience, Inhance Consulting helps organisations improve delivery performance, strengthen governance, and unlock value through data driven insights and modern PMO practices. Below is a snapshot of how we supported a global energy client in transforming a major portfolio."
             className="max-w-3xl"
           />
-          {/* <motion.button
+          <motion.button
             initial={{ opacity: 0, x: 20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -111,62 +111,64 @@ const CaseStudiesSection = () => {
           >
             View All Case Studies
             <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </motion.button> */}
-        </div>
-{/* Case Studies Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {caseStudies.map((study, index) => (
-            <motion.div
-              key={study.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-              className={`group relative bg-primary-foreground/5 backdrop-blur-sm rounded-2xl overflow-hidden hover:bg-primary-foreground/10 transition-all duration-300 ${
-                study.dialog ? "cursor-pointer" : ""
-              }`}
-              onClick={() => study.dialog && setActiveStudy(study)}
-            >
-              {/* Top gradient bar */}
-              <div className={`h-1.5 bg-gradient-to-r ${study.color}`} />
+          </motion.button>
+        </div> */}
+        {/* Case Studies Grid temporarily hidden for future use */}
+        {false && (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {caseStudies.map((study, index) => (
+              <motion.div
+                key={study.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                className={`group relative bg-primary-foreground/5 backdrop-blur-sm rounded-2xl overflow-hidden hover:bg-primary-foreground/10 transition-all duration-300 ${
+                  study.dialog ? "cursor-pointer" : ""
+                }`}
+                onClick={() => study.dialog && setActiveStudy(study)}
+              >
+                {/* Top gradient bar */}
+                <div className={`h-1.5 bg-gradient-to-r ${study.color}`} />
 
-              <div className="p-8">
-                <span className="inline-block px-3 py-1 text-xs font-medium bg-accent/20 text-accent rounded-full mb-4">
-                  {study.category}
-                </span>
+                <div className="p-8">
+                  <span className="inline-block px-3 py-1 text-xs font-medium bg-accent/20 text-accent rounded-full mb-4">
+                    {study.category}
+                  </span>
 
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-accent transition-colors">
-                  {study.title}
-                </h3>
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-accent transition-colors">
+                    {study.title}
+                  </h3>
 
-                <p className="text-primary-foreground/70 mb-6 text-sm">
-                  {study.description}
-                </p>
+                  <p className="text-primary-foreground/70 mb-6 text-sm">
+                    {study.description}
+                  </p>
 
-                {study.dialog && (
-                  <div className="flex items-center justify-between text-xs text-accent font-semibold mb-4">
-                    <span>Tap to explore</span>
-                    <span>↗</span>
-                  </div>
-                )}
-
-                {/* Metrics */}
-                <div className="grid grid-cols-2 gap-4 pt-6 border-t border-primary-foreground/10">
-                  {study.metrics.map((metric) => (
-                    <div key={metric.label}>
-                      <div className="flex items-center gap-1 text-accent">
-                        <TrendingUp className="w-4 h-4" />
-                        <span className="text-2xl font-bold">{metric.value}</span>
-                      </div>
-                      <div className="text-xs text-primary-foreground/60">
-                        {metric.label}
-                      </div>
+                  {study.dialog && (
+                    <div className="flex items-center justify-between text-xs text-accent font-semibold mb-4">
+                      <span>Tap to explore</span>
+                      <span>↗</span>
                     </div>
-                  ))}
+                  )}
+
+                  {/* Metrics */}
+                  <div className="grid grid-cols-2 gap-4 pt-6 border-t border-primary-foreground/10">
+                    {study.metrics.map((metric) => (
+                      <div key={metric.label}>
+                        <div className="flex items-center gap-1 text-accent">
+                          <TrendingUp className="w-4 h-4" />
+                          <span className="text-2xl font-bold">{metric.value}</span>
+                        </div>
+                        <div className="text-xs text-primary-foreground/60">
+                          {metric.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
         <br></br>
         {/* Best Practices */}
         <motion.section
@@ -177,7 +179,7 @@ const CaseStudiesSection = () => {
         >
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-6">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-accent font-semibold">
+              <p className="text-md uppercase tracking-[0.3em] text-accent font-semibold">
                 Best Practices We Follow
               </p>
               <h3 className="text-2xl font-display font-semibold mt-2">
