@@ -2,7 +2,7 @@ name: Deploy Vite site to Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
@@ -38,4 +38,3 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-        timeout-minutes: 20  # example value, adjust as needed
