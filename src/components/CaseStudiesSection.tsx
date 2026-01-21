@@ -180,7 +180,7 @@ const CaseStudiesSection = () => {
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-6">
             <div>
               <p className="text-md uppercase tracking-[0.3em] text-accent font-semibold">
-                Best Practices We Follow
+                Playbook Behind the Result
               </p>
               <h3 className="text-2xl font-display font-semibold mt-2">
                 How we deliver dependable transformation
