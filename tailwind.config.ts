@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Playfair Display", "Georgia", "serif"],
+        sans: ["Segoe UI Variable Text", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "system-ui", "sans-serif"],
+        display: ["Segoe UI Variable Display", "Segoe UI", "Segoe UI Semibold", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -38,7 +38,7 @@ const services = [
           "Advanced analytics and machine learning capabilities that transform raw data into predictive insights and smarter decisions.",
       },
       {
-        title: "AI Integration",
+        title: "Automation",
         description:
           "Seamless integration of AI into your systems, workflows, and digital platforms — accelerating productivity, reducing manual effort, and enabling your teams to work smarter, not harder.",
       },
@@ -120,7 +120,7 @@ const services = [
   },
   {
     icon: Workflow,
-    title: "Digital Project Management",
+    title: "Project Delivery",
     description:
       "We lead digital initiatives from planning to delivery, ensuring clarity, control, and alignment at every stage. Our experienced project managers bring structure, transparency, and discipline to complex digital programmes.",
     features: [],
@@ -184,17 +184,17 @@ const services = [
           "We define scope, governance, processes, and reporting frameworks tailored to your organisation.",
       },
       {
-        title: "Portfolio Visibility",
+        title: "Finance & Contract Management",
         description:
           "We create dashboards and reporting tools that track delivery health, risks, and performance.",
       },
       {
-        title: "Delivery Assurance",
+        title: "Planning & Scheduling Management",
         description:
           "We monitor progress, manage dependencies, and ensure milestones are achieved on time and within budget.",
       },
       {
-        title: "Methodology Enablement",
+        title: "Resource Management",
         description:
           "We apply Agile, DevOps, and Lean Six Sigma practices to strengthen delivery capability.",
       },
@@ -284,6 +284,7 @@ const ServicesSection = () => {
   const [activeInfoTab, setActiveInfoTab] = useState<"capabilities" | "approach">(
     "capabilities"
   );
+  const showApproach = false;
 
   return (
     <section id="services" className="py-24">
@@ -403,34 +404,36 @@ const ServicesSection = () => {
 
             <div>
               <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-                {/* <div>
+                <div>
                   <h4 className="font-semibold text-lg">Our Capabilities</h4>
                   <p className="text-sm text-muted-foreground">
                     Toggle between the services we provide and the way we deliver them.
                   </p>
-                </div> */}
-                <div className="flex rounded-full border border-border bg-card/60 p-1">
-                  {[
-                    { key: "capabilities", label: "Our Capabilities" },
-                    { key: "approach", label: "Our Approach" },
-                  ].map(({ key, label }) => (
-                    <button
-                      key={key}
-                      type="button"
-                      onClick={() => setActiveInfoTab(key as "capabilities" | "approach")}
-                      className={`px-4 py-2 text-sm font-semibold rounded-full transition-colors ${
-                        activeInfoTab === key
-                          ? "bg-accent text-accent-foreground"
-                          : "text-muted-foreground"
-                      }`}
-                    >
-                      {label}
-                    </button>
-                  ))}
                 </div>
+                {showApproach && (
+                  <div className="flex rounded-full border border-border bg-card/60 p-1">
+                    {[
+                      { key: "capabilities", label: "Our Capabilities" },
+                      { key: "approach", label: "Our Approach" },
+                    ].map(({ key, label }) => (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => setActiveInfoTab(key as "capabilities" | "approach")}
+                        className={`px-4 py-2 text-sm font-semibold rounded-full transition-colors ${
+                          activeInfoTab === key
+                            ? "bg-accent text-accent-foreground"
+                            : "text-muted-foreground"
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
-              {activeInfoTab === "capabilities" ? (
+              {activeInfoTab === "capabilities" || !showApproach ? (
                 <div className="grid gap-4 md:grid-cols-2">
                   {activeService.capabilities.map((item) => (
                     <div

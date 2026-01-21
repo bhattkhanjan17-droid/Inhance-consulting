@@ -45,9 +45,10 @@ const HeroSection = () => {
             <SectionHeader
               align="center"
               eyebrow="Inhance Consulting"
+              eyebrowClassName="!text-lg md:!text-2xl !font-bold !tracking-[0.25em]"
               title={
                 <>
-                  Transform Your Business with{" "}
+                  Transform Your Business with{" "}<br/>
                   <span className="text-gradient-gold">Strategic Excellence</span>
                 </>
               }
@@ -67,16 +68,16 @@ const HeroSection = () => {
                 onClick={() => scrollToSection("#contact")}
                 className="group"
               >
-                Start Your Journey
+                Start your journey
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button
+              {/* <Button
                 variant="hero-outline"
                 size="xl"
                 onClick={() => scrollToSection("#case-studies")}
               >
                 View Our Work
-              </Button>
+              </Button> */}
             </motion.div>
 
             {/* Stats */}

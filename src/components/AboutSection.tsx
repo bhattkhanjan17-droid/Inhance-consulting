@@ -9,25 +9,29 @@ const values = [
     icon: Lightbulb,
     title: "Innovation First",
     description:
-      "We embrace modern technologies, emerging tools, and forward thinking approaches to solve complex problems. At Inhance, innovation isn’t just about adopting the latest trends—it’s about applying the right solutions to unlock new possibilities and accelerate digital transformation.",
+      // "We embrace modern technologies, emerging tools, and forward thinking approaches to solve complex problems. At Inhance, innovation isn’t just about adopting the latest trends—it’s about applying the right solutions to unlock new possibilities and accelerate digital transformation.",
+      "We embrace modern technologies, emerging tools, and forward thinking."
   },
   {
     icon: Shield,
     title: "Collaboration",
     description:
-      "We partner closely with our clients, working as an extension of their teams. By understanding their goals, challenges, and operating realities, we cocreate solutions that are practical, scalable, and aligned with long term success.",
+      // "We partner closely with our clients, working as an extension of their teams. By understanding their goals, challenges, and operating realities, we cocreate solutions that are practical, scalable, and aligned with long term success.",
+      "We partner closely with our clients, working as an extension of their teams."
   },
   {
     icon: Globe,
     title: "Impact",
     description:
-      "We measure our success by the outcomes we deliver. Every engagement is driven by a commitment to excellence, integrity, and accountability—ensuring our work creates real, measurable value for our clients and their organisations.",
+      // "We measure our success by the outcomes we deliver. Every engagement is driven by a commitment to excellence, integrity, and accountability—ensuring our work creates real, measurable value for our clients and their organisations.",
+      "We measure our success by the outcomes we deliver."
   },
   {
     icon: Award,
     title: "Execution Excellence",
     description:
-      "We turn ideas into reality through structured delivery, clear ownership, and disciplined project execution. Our focus is on timelines, quality, and accountability — ensuring solutions don’t just look good on paper, but work in practice.",
+      // "We turn ideas into reality through structured delivery, clear ownership, and disciplined project execution. Our focus is on timelines, quality, and accountability — ensuring solutions don’t just look good on paper, but work in practice.",
+      "We turn ideas into reality through structured delivery, clear ownership, and disciplined project execution."
   },
 ];
 

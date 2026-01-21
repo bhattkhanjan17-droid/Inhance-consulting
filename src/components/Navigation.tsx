@@ -8,10 +8,10 @@ const navItems = [
   { label: "Home", href: "#home" },
   { label: "About Us", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Industries", href: "#industries" },
+  // { label: "Industries", href: "#industries" },
   // { label: "Case Studies", href: "#case-studies" },
   { label: "Careers", href: "#careers" },
-  { label: "Contact", href: "#contact" },
+  // { label: "Contact", href: "#contact" },
 ];
 
 const Navigation = () => {
@@ -41,9 +41,7 @@ const Navigation = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-[#182534]/95 backdrop-blur-md shadow-card"
-            : "bg-[#182534]"
+          isScrolled ? "bg-[#182534] shadow-card" : "bg-[#182534]"
         }`}
       >
         <div className="container mx-auto px-6 py-4">
@@ -96,7 +94,7 @@ const Navigation = () => {
                 size="default"
                 onClick={() => scrollToSection("#contact")}
               >
-                Get Started
+                Contact Us
               </Button>
             </motion.div>
 
