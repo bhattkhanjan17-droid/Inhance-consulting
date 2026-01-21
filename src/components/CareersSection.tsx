@@ -104,7 +104,7 @@ const CareersSection = () => {
   const [activeJob, setActiveJob] = useState<JobOpening | null>(null);
 
   const careersFormUrl =
-    "https://forms.office.com/Pages/ResponsePage.aspx?dummy-careers-form";
+    "https://forms.office.com/Pages/DesignPageV2.aspx?origin=RevampFRE&subpage=design&id=TCVP4JU2iEGM7Tkrky-hnKSmmbtBriROqNYoFvb1yh1UOVRZUkZIVlZKV1BWNVFaTTNMNFY1SkdFVi4u";
 
   return (
     <section id="careers" className="py-24">

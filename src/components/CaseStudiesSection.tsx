@@ -89,7 +89,7 @@ const CaseStudiesSection = () => {
     <section id="case-studies" className="py-24 bg-primary text-primary-foreground">
       <div className="container mx-auto px-6" ref={ref}>
         {/* Header */}
-        {/* <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <SectionHeader
             align="left"
             tone="onDark"
@@ -110,12 +110,12 @@ const CaseStudiesSection = () => {
             className="flex items-center gap-2 text-accent hover:text-accent/80 transition-colors font-semibold group"
           >
             View All Case Studies
-            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            {/* <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" /> */}
           </motion.button>
-        </div> */}
+        </div>
         {/* Case Studies Grid temporarily hidden for future use */}
         {false && (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {caseStudies.map((study, index) => (
               <motion.div
                 key={study.title}
@@ -169,46 +169,47 @@ const CaseStudiesSection = () => {
             ))}
           </div>
         )}
-        <br></br>
         {/* Best Practices */}
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-12 bg-primary-foreground/5 rounded-3xl border border-primary-foreground/10 p-8"
-        >
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-6">
-            <div>
-              <p className="text-md uppercase tracking-[0.3em] text-accent font-semibold">
-                Playbook Behind the Result
-              </p>
-              <h3 className="text-2xl font-display font-semibold mt-2">
-                How we deliver dependable transformation
-              </h3>
-              <p className="text-primary-foreground/80 mt-2 text-sm">
-                Every engagement leverages a consistent playbook that keeps teams aligned, insight-led, and focused on creating lasting value.
-              </p>
+        {false && (
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-12 bg-primary-foreground/5 rounded-3xl border border-primary-foreground/10 p-8"
+          >
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-6">
+              <div>
+                <p className="text-md uppercase tracking-[0.3em] text-accent font-semibold">
+                  Playbook Behind the Result
+                </p>
+                <h3 className="text-2xl font-display font-semibold mt-2">
+                  How we deliver dependable transformation
+                </h3>
+                <p className="text-primary-foreground/80 mt-2 text-sm">
+                  Every engagement leverages a consistent playbook that keeps teams aligned, insight-led, and focused on creating lasting value.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {bestPractices.map((practice, index) => (
-              <motion.div
-                key={practice}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.2 + index * 0.05 }}
-                className="flex items-start gap-3 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10 p-4"
-              >
-                <div className="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center font-semibold text-sm">
-                  {index + 1}
-                </div>
-                <span className="text-sm font-medium text-primary-foreground/90">
-                  {practice}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {bestPractices.map((practice, index) => (
+                <motion.div
+                  key={practice}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.05 }}
+                  className="flex items-start gap-3 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10 p-4"
+                >
+                  <div className="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center font-semibold text-sm">
+                    {index + 1}
+                  </div>
+                  <span className="text-sm font-medium text-primary-foreground/90">
+                    {practice}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+        )}
       </div>
 
       <Dialog open={!!activeStudy} onOpenChange={() => setActiveStudy(null)}>
