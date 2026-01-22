@@ -104,7 +104,7 @@ const CareersSection = () => {
   const [activeJob, setActiveJob] = useState<JobOpening | null>(null);
 
   const careersFormUrl =
-    "https://docs.google.com/forms/d/e/1FAIpQLScNbftzSYiWqfrIplXZ2wJA40Tf5h9Vu8sMwxcsqKAwpgpIeQ/viewform?pli=1";
+    "https://docs.google.com/forms/d/e/1FAIpQLScNbftzSYiWqfrIplXZ2wJA40Tf5h9Vu8sMwxcsqKAwpgpIeQ/viewform?embedded=true";
 
   return (
     <section id="careers" className="py-24">
