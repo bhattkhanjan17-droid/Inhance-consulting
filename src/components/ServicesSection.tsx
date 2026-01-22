@@ -406,9 +406,9 @@ const ServicesSection = () => {
               <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                 <div>
                   <h4 className="font-semibold text-lg">Our Capabilities</h4>
-                  <p className="text-sm text-muted-foreground">
+                  {/* <p className="text-sm text-muted-foreground">
                     Toggle between the services we provide and the way we deliver them.
-                  </p>
+                  </p> */}
                 </div>
                 {showApproach && (
                   <div className="flex rounded-full border border-border bg-card/60 p-1">

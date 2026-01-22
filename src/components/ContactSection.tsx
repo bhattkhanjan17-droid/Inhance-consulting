@@ -19,7 +19,7 @@ const contactInfo = [
 ];
 
 const contactFormUrl =
-  "https://forms.office.com/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&groupid=17577823-c51a-4689-8bfa-d837b2907835&id=TCVP4JU2iEGM7Tkrky-hnCN4VxcaxYlGi_rYN7KQeDVURjNCVkRVSFRTRFU2S0hQR0dYWUZIM1A0MSQlQCN0PWcu&topview=Preview";
+  "https://docs.google.com/forms/d/e/1FAIpQLSe_nQZMX_0VEh9J-UqlVNZVmL9tUvL24ynoEXrjq0qtgTAcow/viewform";
 
 const ContactSection = () => {
   const ref = useRef(null);
