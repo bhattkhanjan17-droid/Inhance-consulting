@@ -15,7 +15,7 @@ const footerLinks = {
     { label: "Education & EdTech", href: "#services" },
   ],
   resources: [
-    { label: "Case Studies", href: "#case-studies" },
+    { label: "Services", href: "#services" },
     // { label: "Insights", href: "#" },
     // { label: "Events", href: "#" },
     { label: "Contact", href: "#contact" },
