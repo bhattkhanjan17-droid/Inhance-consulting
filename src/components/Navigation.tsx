@@ -118,7 +118,7 @@ const Navigation = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-x-0 top-[72px] z-40 bg-[#182534]/98 backdrop-blur-lg shadow-elevated lg:hidden"
+            className="fixed inset-x-0 top-[72px] z-40 bg-[#182534] shadow-elevated lg:hidden"
           >
             <div className="container mx-auto px-6 py-6">
               <div className="flex flex-col gap-2">
@@ -126,7 +126,7 @@ const Navigation = () => {
                   <motion.button
                     key={item.href}
                     onClick={() => scrollToSection(item.href)}
-                    className="py-3 px-4 text-left text-xl font-medium text-white/90 hover:bg-white/10 rounded-lg transition-colors"
+                    className="py-3 px-4 text-left text-xl font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
